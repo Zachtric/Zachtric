@@ -1,0 +1,35 @@
+"```python
+import turtle
+import sys
+
+sys.setrecursionlimit(10000)
+
+def draw_fractal(length, depth):
+    if depth == 0:
+        for _ in range(3):
+            turtle.forward(length)
+            turtle.left(120)
+    else:
+        draw_fractal(length/2, depth-1)
+        turtle.forward(length/2)
+        draw_fractal(length/2, depth-1)
+        turtle.backward(length/2)
+        turtle.left(60)
+        draw_fractal(length/2, depth-1)
+        turtle.right(60)
+
+
+if __name__ == '__main__':
+    turtle.speed(0)
+    turtle.bgcolor(""black"")
+    turtle.color(""cyan"")
+    turtle.pensize(1)
+    turtle.penup()
+    turtle.goto(-200, -100)
+    turtle.pendown()
+    
+    depth = 6
+    draw_fractal(400, depth)
+    
+    turtle.done()
+```"
